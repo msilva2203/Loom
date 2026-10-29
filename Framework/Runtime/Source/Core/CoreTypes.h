@@ -2,4 +2,5 @@
 
 #pragma once
 
+#include "Loom.h"
 #include "Platform/Platform.h"
