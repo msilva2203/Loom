@@ -1,2 +1,2 @@
-# Add framework projects
-add_subdirectory(Runtime)
+# Add framework source
+add_subdirectory(Source)
