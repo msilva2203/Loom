@@ -1,5 +1,7 @@
 #include "WindowsNetworking.h"
 
+#if defined(LOOM_PLATFORM_WINDOWS)
+
 // link with Ws2_32.lib
 #pragma comment(lib,"Ws2_32.lib")
 
@@ -40,3 +42,5 @@ namespace Loom {
     }
 
 } /* Loom */
+
+#endif /* LOOM_PLATFORM_WINDOWS */

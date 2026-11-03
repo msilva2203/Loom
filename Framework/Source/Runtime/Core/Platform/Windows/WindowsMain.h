@@ -1,5 +1,9 @@
 #pragma once
 
+#include "CoreTypes.h"
+
+#if defined(LOOM_PLATFORM_WINDOWS)
+
 #include "Application/Application.h"
 #include "Platform/PlatformNetworking.h"
 
@@ -26,3 +30,5 @@ int main(int argc, char *argv[])
 
     return EXIT_SUCCESS;
 }
+
+#endif /* LOOM_PLATFORM_WINDOWS */

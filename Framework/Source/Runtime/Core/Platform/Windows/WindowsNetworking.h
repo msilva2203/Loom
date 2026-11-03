@@ -2,6 +2,8 @@
 
 #include "CoreTypes.h"
 
+#if defined(LOOM_PLATFORM_WINDOWS)
+
 namespace Loom {
 
     class LOOM_API WindowsNetworking
@@ -14,3 +16,5 @@ namespace Loom {
     };
 
 } /* Loom */
+
+#endif /* LOOM_PLATFORM_WINDOWS */

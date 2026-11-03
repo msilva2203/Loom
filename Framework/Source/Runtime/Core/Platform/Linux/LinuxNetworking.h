@@ -2,6 +2,8 @@
 
 #include "CoreTypes.h"
 
+#if defined(LOOM_PLATFORM_LINUX)
+
 namespace Loom {
 
     class LOOM_API LinuxNetworking
@@ -14,3 +16,5 @@ namespace Loom {
     };
 
 } /* Loom */
+
+#endif /* LOOM_PLATFORM_LINUX */

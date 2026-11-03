@@ -9,6 +9,7 @@ target_sources(
     PRIVATE
         Runtime/Core/Application/Application.cpp
         Runtime/Core/Platform/Linux/LinuxSocket.cpp
+        Runtime/Core/Platform/Windows/WindowsNetworking.cpp
         Runtime/Core/Platform/Windows/WindowsSocket.cpp
     PUBLIC
         FILE_SET HEADERS
@@ -39,4 +40,5 @@ target_compile_features(Loom PUBLIC cxx_std_23)
 target_include_directories(Loom
     PUBLIC
         "${CMAKE_CURRENT_SOURCE_DIR}/Runtime"
+        "${CMAKE_CURRENT_SOURCE_DIR}/Runtime/Core"
 )
