@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Loom.h"
+#include "CoreTypes.h"
 #include "Platform/Socket.h"
 
 // link with Ws2_32.lib
