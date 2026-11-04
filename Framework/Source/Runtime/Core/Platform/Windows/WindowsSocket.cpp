@@ -1,3 +1,4 @@
+#include "CoreTypes.h"
 #include "WindowsSocket.h"
 
 namespace Loom {
@@ -39,6 +40,11 @@ namespace Loom {
         // [msilva2203]
         // @see https://learn.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-bind
 
+        if (!IsValid())
+        {
+            return false;
+        }
+
         sockaddr_in service;
         service.sin_family = AF_INET;
         service.sin_addr.s_addr = inet_addr("127.0.0.1");
@@ -60,6 +66,11 @@ namespace Loom {
     {
         // [msilva2203]
         // @see https://learn.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-connect
+
+        if (!IsValid())
+        {
+            return false;
+        }
 
         sockaddr_in service;
         service.sin_family = AF_INET;
@@ -83,6 +94,11 @@ namespace Loom {
         // [msilva2203]
         // @see https://learn.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-listen
 
+        if (!IsValid())
+        {
+            return false;
+        }
+
         const int backlog = SOMAXCONN;
         const int result = listen(sock, backlog);
 
@@ -99,10 +115,17 @@ namespace Loom {
         // [msilva2203]
         // @see https://learn.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-accept
 
+        if (!IsValid())
+        {
+            return false;
+        }
+
         if (outSocket == nullptr)
         {
             return false;
         }
+
+        WindowsSocket* outWinSocket = static_cast<WindowsSocket*>(outSocket);
 
         const int acceptSock = accept(sock, NULL, NULL);
 
@@ -112,7 +135,46 @@ namespace Loom {
             return false;
         }
 
+        outWinSocket->sock = acceptSock;
+
         return true;
+    }
+
+    std::ptrdiff_t WindowsSocket::Send(const void* inData, const SIZE_T inSize)
+    {
+        // [msilva2203]
+        // @see https://learn.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-send
+
+        int flags = 0;
+        const int result = send(
+            sock,
+            (const char*)inData,
+            inSize,
+            flags
+        );
+
+        if (result == SOCKET_ERROR)
+        {
+
+        }
+
+        return result;
+    }
+
+    std::ptrdiff_t WindowsSocket::Receive(void* outData, const SIZE_T inSize)
+    {
+        // [msilva2203]
+        // @see https://learn.microsoft.com/en-us/windows/win32/api/winsock/nf-winsock-recv
+
+        int flags = 0;
+        const int result = recv(
+            sock,
+            (char*)outData,
+            inSize,
+            flags
+        );
+
+        return result;
     }
 
     void WindowsSocket::Close()
@@ -126,6 +188,8 @@ namespace Loom {
         {
 
         }
+
+        sock = INVALID_SOCKET;
     }
 
     bool WindowsSocket::IsValid() const

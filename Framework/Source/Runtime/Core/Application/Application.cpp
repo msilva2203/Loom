@@ -1,5 +1,3 @@
-
-
 #include "Application.h"
 
 namespace Loom {
@@ -10,6 +8,11 @@ namespace Loom {
     }
 
     Application::~Application()
+    {
+
+    }
+
+    void Application::Run()
     {
 
     }

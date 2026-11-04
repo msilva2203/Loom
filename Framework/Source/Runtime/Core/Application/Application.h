@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/CoreTypes.h"
+#include "CoreTypes.h"
 
 namespace Loom {
 
@@ -9,6 +9,8 @@ namespace Loom {
     public:
         Application();
         virtual ~Application();
+
+        virtual void Run();
     };
 
 } /* Loom */

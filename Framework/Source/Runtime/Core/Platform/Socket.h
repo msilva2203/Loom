@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Loom.h"
+#include "CoreTypes.h"
 #include "Core/Platform/PlatformTypes.h"
 
 namespace Loom {
@@ -20,7 +20,9 @@ namespace Loom {
     class LOOM_API SocketAddressBase
     {
     public:
-        SocketAddressBase();
+        SocketAddressBase()
+        {
+        }
 
 
     };
@@ -28,8 +30,8 @@ namespace Loom {
     class LOOM_API SocketBase
     {
     public:
-        SocketBase();
-        virtual ~SocketBase();
+        SocketBase() {}
+        virtual ~SocketBase() {}
 
         virtual b32 Create() = 0;
         virtual b32 Bind(const SocketAddressBase& inSocketAddress) = 0;
@@ -37,6 +39,9 @@ namespace Loom {
         virtual b32 Listen() = 0;
 
         virtual b32 Accept(SocketBase* outSocket) = 0;
+
+        virtual std::ptrdiff_t Send(const void* inData, const SIZE_T inSize) = 0;
+        virtual std::ptrdiff_t Receive(void* outData, const SIZE_T inSize) = 0;
 
         virtual void Close() = 0;
 

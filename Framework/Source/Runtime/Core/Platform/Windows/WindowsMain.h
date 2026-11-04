@@ -8,8 +8,6 @@
 #include "Platform/PlatformNetworking.h"
 
 #include <windows.h>
-#include <iostream>
-#include <print>
 
 /* [msilva2203]
  * Application creation definition can be found in clients/projects.
@@ -24,6 +22,7 @@ int main(int argc, char *argv[])
     Loom::Networking::Init();
 
     Loom::Application* App = CreateApplication();
+    App->Run();
     delete App;
 
     Loom::Networking::Shutdown();

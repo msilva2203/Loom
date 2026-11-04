@@ -4,6 +4,11 @@
 #include <stdfloat>
 #include <uchar.h>
 #include <cstddef>
+#include <iostream>
+#include <print>
+#include <string>
+#include <vector>
+#include <array>
 
 namespace Loom::PlatformTypes {
 

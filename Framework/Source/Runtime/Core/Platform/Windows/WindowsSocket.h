@@ -3,6 +3,8 @@
 #include "CoreTypes.h"
 #include "Platform/Socket.h"
 
+#if defined(LOOM_PLATFORM_WINDOWS)
+
 // link with Ws2_32.lib
 #pragma comment(lib,"Ws2_32.lib")
 
@@ -32,6 +34,9 @@ namespace Loom {
 
         virtual b32 Accept(SocketBase* outSocket) override;
 
+        virtual std::ptrdiff_t Send(const void* inData, const SIZE_T inSize) override;
+        virtual std::ptrdiff_t Receive(void* outData, const SIZE_T inSize) override;
+
         virtual void Close() override;
 
         virtual bool IsValid() const override;
@@ -42,3 +47,5 @@ namespace Loom {
     };
 
 } /* Loom */
+
+#endif /* LOOM_PLATFORM_WINDOWS */

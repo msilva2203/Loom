@@ -1,3 +1,4 @@
+#include "CoreTypes.h"
 #include "WindowsNetworking.h"
 
 #if defined(LOOM_PLATFORM_WINDOWS)
