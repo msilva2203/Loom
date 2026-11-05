@@ -22,7 +22,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-#### 1. Clone the repository
+#### Clone the repository
 
 Start by cloning the repository.
 
@@ -31,7 +31,7 @@ $ git clone https://github.com/msilva2203/Loom
 $ cd Loom
 ```
 
-#### 2. Create a new project
+#### Create a new project
 
 After finishing getting a copy of the repository, create
 a new directory in the `Projects/` directory, with the name of your project.  Edit
@@ -39,7 +39,7 @@ a new directory in the `Projects/` directory, with the name of your project.  Ed
 
 > Please, use the BasicServer sample project as a template until a proper project creation method is implemented. The project can be found in `Samples/BasicServer/`.
 
-#### 3. Project configuration
+#### Project configuration
 
 To configure and generate the native build system, simply run:
 
@@ -47,7 +47,7 @@ To configure and generate the native build system, simply run:
 $ cmake -S . -B Build
 ```
 
-### Building the projects
+## Building the projects
 
 After finishing installing the Loom framework and creating a project, build the projects by running:
 
@@ -57,7 +57,7 @@ $ cmake --build Build
 
 ## Authors
 
-* **Marco Sivla** - [@msilva2203](https://github.com/msilva2203)
+* **Marco Silva** - [@msilva2203](https://github.com/msilva2203)
 
 ## License
 
