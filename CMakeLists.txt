@@ -22,7 +22,11 @@ else()
     message(FATAL_ERROR "Unsupported platform: ${CMAKE_SYSTEM_NAME}")
 endif()
 
+# Add framework subdirectory
 add_subdirectory(Framework)
+
+# Add project subdirectory
+add_subdirectory(Projects)
 
 if(LOOM_BUILD_SAMPLES)
     add_subdirectory(Samples)
